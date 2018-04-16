@@ -1,0 +1,17 @@
+{% extends 'skeleton.html' %}
+
+{% block title %}
+  Invitation
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h2>Enter your access token</h2>
+<form method="get" action="">
+  <input type="text" name="token" required />
+  <button>Grant Access Token</button>
+</form>
+
+
+{% endblock %}

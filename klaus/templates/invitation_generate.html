@@ -1,0 +1,33 @@
+{% extends 'skeleton.html' %}
+
+{% block title %}
+  Invitation Generate
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<form method="get" action="">
+  <input type="hidden" name="token" value="" />
+  <button>Clear Access Token</button>
+</form>
+
+<form method="post" action="">
+<ul class="repolist">
+  {% for repo, status in repos.items() %}
+  <li>
+    <label>
+      <input type="checkbox" name="repos" value="{{ repo }}" {% if status %}checked{%endif%}/>
+      {{ repo }}
+    </label>
+    </li>
+  {% endfor %}
+</ul>
+<button>Generate Access Token</button>
+{% if access_token %}
+<p>Access Token: {{ access_token }}</p>
+<p>Invitation Link: {{ url_for('invitation', _external=True) }}?token={{ access_token }}</p>
+{% endif %}
+</form>
+
+{% endblock %}

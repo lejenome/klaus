@@ -1,0 +1,27 @@
+{% extends 'skeleton.html' %}
+
+{% block title %}
+  Invitation Info
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<form method="get" action="">
+  <input type="hidden" name="token" value="" />
+  <button>Clear Access Token</button>
+</form>
+
+<br />
+<h2>You have access to the following repos:</h2>
+<ul class="repolist">
+  {% for repo in repos %}
+    <li>
+      <a href="{{ url_for('index', repo=repo) }}">
+        <div class=name>{{ repo }}</div>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
